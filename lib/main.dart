@@ -40,6 +40,13 @@ class _MyAppState extends State<MyApp> {
       _products.removeAt(index);
     });
   }
+
+  void _updateProduct(int index, Map<String, dynamic> product) {
+    setState(() {
+      _products[index] = product;
+    });
+  }
+
   final ThemeData themeData = ThemeData(
     brightness: Brightness.light,
     primarySwatch: Colors.deepOrange,
@@ -59,6 +66,8 @@ class _MyAppState extends State<MyApp> {
               addProduct: _addProduct,
               removeProduct: _removeProduct,
               deleteProduct: _deleteProduct,
+              products: _products,
+              updateProduct : _updateProduct
             ),
       },
       onGenerateRoute: (RouteSettings settings) {
